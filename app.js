@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 
 const authRoutes =require("./routes/auth");
 const userRoutes =require("./routes/user");
+const categoryRoutes=require("./routes/category");
 
 //DB CONNECTION
 mongoose.connect(process.env.DATABASE,
@@ -28,6 +29,7 @@ app.use(cors());
 //MY Routes
 app.use("/api",authRoutes);
 app.use("/api",userRoutes);
+app.use("/api",categoryRoutes);
 
 //PORT
 const port = process.env.port || 8000;

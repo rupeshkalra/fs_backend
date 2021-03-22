@@ -3,7 +3,7 @@ const express =require("express");
 const router = express.Router();
 
 const {isAdmin,isAuthenticated,isSignedIn} = require("../controllers/auth");
-const {getUser,getUserById,updateUser} = require("../controllers/user");
+const {getUser,getUserById,updateUser,userPurchaseList} = require("../controllers/user");
 
 router.param("userId",getUserById);
 
