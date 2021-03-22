@@ -1,7 +1,8 @@
 const User =require("../models/user");
 const Order=require("../models/order");
 
-exports.getUserById =(req,res,next,id)=>
+
+exports.getUserById = (req,res,next,id)=>
 {
     User.findById(id).exec((err,user)=>
     {
