@@ -52,3 +52,17 @@ exports.updateCategory=(req,res)=>{
     res.json(updatedcategory);  
   })
 }
+
+exports.removeCategory=(req,res)=>{
+  const category=req.category;
+  category.remove((err,removedcategory)=>{
+    if(err){
+      return res.status(400).json({
+        error:"Not able to delete category"
+      });
+    }
+    res.json({
+      message:"category deleted"
+    })
+  })
+}
