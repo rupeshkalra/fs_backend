@@ -29,7 +29,14 @@ exports.createProduct=(req,res)=>{
             })
         };
 
-        
+        const {name,category,description,stock,price} = fields;
+
+        if(!name||!category||!description||!stock||!price){
+            return res.status(400).json({
+                error:"Please include all fields"
+            })
+        }
+
         let product=new Product(fields);
 
         if(file.photo){
@@ -45,7 +52,7 @@ exports.createProduct=(req,res)=>{
         product.save((err,product)=>{
             if(err){
                 return res.status(400).json({
-                    error:"unable to create product"
+                    error:"unable to create product" 
                 })
             };
             res.json(product);
