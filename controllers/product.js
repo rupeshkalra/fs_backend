@@ -163,3 +163,14 @@ exports.updateStock=(req,res,next)=>{
     });
     next();
 }
+
+exports.getAllCategories=(req,res)=>{
+    Product.distinct("category",{},(err,category)=>{
+        if(err){
+            return res.status(400).json({
+                error:"not able to fetch categories"
+            })
+        }
+        res.json(category);
+    })
+}
