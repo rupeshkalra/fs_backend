@@ -86,7 +86,7 @@ exports.isAuthenticated=(req,res,next)=>{
     if(!check)
     {
         return res.status(403).json({
-            error: "Access Denied"
+            error: "ACCESS DENIED"
         });
     };
     next();
